@@ -96,7 +96,7 @@ public class RealtimeBlurView extends View {
 				getClass().getClassLoader().loadClass("android.support.v8.renderscript.RenderScript");
 				// initialize RenderScript to load jni impl
 				// may throw unsatisfied link error
-				SupportLibraryBlurImpl impl = new SupportLibraryBlurImpl();
+				AndroidXBlurImpl impl = new AndroidXBlurImpl();
 				Bitmap bmp = Bitmap.createBitmap(4, 4, Bitmap.Config.ARGB_8888);
 				impl.prepare(getContext(), bmp, 4);
 				impl.release();
@@ -114,7 +114,7 @@ public class RealtimeBlurView extends View {
 			case 1:
 				return new AndroidXBlurImpl();
 			case 2:
-				return new SupportLibraryBlurImpl();
+				return new AndroidXBlurImpl();
 			case 3:
 				return new AndroidStockBlurImpl();
 			default:
